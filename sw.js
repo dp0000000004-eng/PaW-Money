@@ -1,5 +1,5 @@
-const CACHE_NAME = "paw-money-v1";
-const APP_ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest", "./icon.svg"];
+const CACHE_NAME = "credora-v2";
+const APP_ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./branding.js", "./manifest.webmanifest", "./logo.jpeg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_ASSETS)));
@@ -9,7 +9,7 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(
-      keys.filter((key) => key.startsWith("paw-money-") && key !== CACHE_NAME)
+      keys.filter((key) => /^(paw-money-|credora-)/.test(key) && key !== CACHE_NAME)
         .map((key) => caches.delete(key)),
     )),
   );
