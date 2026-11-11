@@ -1,6 +1,6 @@
 {
-  "name": "PaW-MoneY — Expense Tracker",
-  "short_name": "PaW-MoneY",
+  "name": "Credora — Expense Tracker",
+  "short_name": "Credora",
   "description": "A calmer way to keep track of your income, expenses, and monthly money history.",
   "start_url": "./",
   "scope": "./",
@@ -9,9 +9,9 @@
   "theme_color": "#191326",
   "icons": [
     {
-      "src": "./icon.svg",
+      "src": "./logo.jpeg",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image",
       "purpose": "any maskable"
     }
   ]
