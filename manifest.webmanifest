@@ -1,18 +1,18 @@
 {
-  "name": "Credora — Expense Tracker",
+  "name": "Credora",
   "short_name": "Credora",
   "description": "A calmer way to keep track of your income, expenses, and monthly money history.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f7f5fa",
-  "theme_color": "#191326",
+  "background_color": "#f4f8f5",
+  "theme_color": "#101712",
   "icons": [
     {
       "src": "./logo.jpeg",
-      "sizes": "any",
-      "type": "image",
-      "purpose": "any maskable"
+      "sizes": "1280x1280",
+      "type": "image/jpeg",
+      "purpose": "any"
     }
   ]
 }
