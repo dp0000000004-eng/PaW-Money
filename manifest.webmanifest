@@ -10,9 +10,9 @@
   "icons": [
     {
       "src": "./logo.jpeg",
-      "sizes": "1280x1280",
+      "sizes": "any",
       "type": "image/jpeg",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ]
 }
