@@ -151,7 +151,7 @@ function setAuthMode(mode) {
     : "Welcome back. Your money history is right where you left it.";
   document.querySelector("#authSubmit").innerHTML = isSignup
     ? 'Create my account <span aria-hidden="true">→</span>'
-    : 'Log in to PaW-MoneY <span aria-hidden="true">→</span>';
+    : 'Log in to Credora <span aria-hidden="true">→</span>';
   authForm.dataset.mode = mode;
 }
 
@@ -219,7 +219,7 @@ authForm.addEventListener("submit", async (event) => {
       localStorage.setItem(ACCOUNT_KEY, JSON.stringify(accounts));
       localStorage.setItem(SESSION_KEY, email);
       showApp(account);
-      showToast(`Welcome to PaW-MoneY, ${account.name.split(/\s+/)[0]}!`);
+      showToast(`Welcome to Credora, ${account.name.split(/\s+/)[0]}!`);
     } else {
       const account = accounts.find((item) => item.email === email);
       if (!account || await passwordHash(password, account.salt) !== account.passwordHash) {
@@ -525,7 +525,7 @@ document.querySelector("#currencySelect").addEventListener("change", (event) => 
 });
 
 document.querySelector("#profileButton").addEventListener("click", () => {
-  if (!window.confirm("Log out of PaW-MoneY on this device? Your saved account and transactions will stay here.")) return;
+  if (!window.confirm("Log out of Credora on this device? Your saved account and transactions will stay here.")) return;
   localStorage.removeItem(SESSION_KEY);
   currentUser = null;
   transactions = [];
@@ -552,7 +552,7 @@ document.querySelector("#exportButton").addEventListener("click", () => {
   const downloadUrl = URL.createObjectURL(file);
   const anchor = document.createElement("a");
   anchor.href = downloadUrl;
-  anchor.download = `paw-money-${key}.csv`;
+  anchor.download = `credora-${key}.csv`;
   anchor.click();
   URL.revokeObjectURL(downloadUrl);
   showToast(`${monthLabel(key)} report downloaded.`);
@@ -562,7 +562,7 @@ document.querySelector("#installButton").addEventListener("click", async () => {
   if (installPrompt) {
     await installPrompt.prompt();
     const choice = await installPrompt.userChoice;
-    if (choice.outcome === "accepted") showToast("PaW-MoneY is ready on your device.");
+    if (choice.outcome === "accepted") showToast("Credora is ready on your device.");
     installPrompt = null;
     return;
   }
@@ -576,7 +576,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
 
 window.addEventListener("appinstalled", () => {
   installPrompt = null;
-  showToast("PaW-MoneY is installed. Welcome aboard!");
+  showToast("Credora is installed. Welcome aboard!");
 });
 
 async function startApp() {
@@ -603,7 +603,7 @@ startApp();
 
 if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
   navigator.serviceWorker.register("./sw.js").catch((error) => {
-    console.error("PaW-MoneY could not enable offline support:", error);
+    console.error("Credora could not enable offline support:", error);
     showToast("Offline support couldn't start. The app will still work while you're online.", true);
   });
 }
